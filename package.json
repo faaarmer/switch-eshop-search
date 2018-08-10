@@ -1,0 +1,22 @@
+{
+  "name": "eshop-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^6.1.0",
+    "lodash": "^4.17.10",
+    "node-fetch": "^2.2.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "es5",
+    "semi": false
+  }
+}
