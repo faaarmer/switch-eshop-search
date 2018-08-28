@@ -27,10 +27,10 @@ const ora = require('ora')
 	if (!numResults) {
 		return
 	}
- else if (numResults === 1 || numResults === '1') {
+	else if (numResults === 1 || numResults === '1') {
 		selectedGame = searchResults.game
 	}
- else {
+	else {
 		spinner.stop()
 		choices = _.map(searchResults.game, 'title')
 		inquirerAnswer = await inquirer.prompt([
@@ -61,12 +61,11 @@ const ora = require('ora')
 		// 	console.log('')
 		// }
 	}
- else {
+	else {
 		let generatedIds = generateIdsToTest(usNintendoStoreID)
 		let games = await testIDs(generatedIds)
 		spinner.stop()
-		// console.log(JSON.stringify(games, null, 4))
-		prettyPrintGameStats(selectedGame, games[0])
+		_.each(games, game => prettyPrintGameStats(selectedGame, game))
 	}
 })()
 
@@ -107,7 +106,7 @@ function generateIdsToTest (usNintendoStoreID) {
 
 	let ids = [usNintendoStoreID]
 
-	for (let i = 1; i <= 5; i++) {
+	for (let i = 1; i <= 10; i++) {
 		ids.push(usNintendoStoreID - i)
 		ids.push(usNintendoStoreID + i)
 	}
