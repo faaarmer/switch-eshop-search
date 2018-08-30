@@ -116,16 +116,16 @@ function generateIdsToTest (usNintendoStoreID) {
 function prettyPrintGameStats (selectedGame, auEshopResult) {
 	console.log(
 		`${selectedGame.title} - ${
-			auEshopResult.price.regular_price.formatted_value
+			auEshopResult.price.discount_price ? auEshopResult.price.discount_price.formatted_value : auEshopResult.price.regular_price.formatted_value
 		}${
-			auEshopResult.price.regular_price.currency
+			auEshopResult.price.discount_price ? auEshopResult.price.discount_price.currency : auEshopResult.price.regular_price.currency
 		} - https://ec.nintendo.com/AU/en/titles/${auEshopResult.id}`
 	)
 	console.log(
 		`<a href="https://ec.nintendo.com/AU/en/titles/${auEshopResult.id}">${selectedGame.title} - ${
-			auEshopResult.price.regular_price.formatted_value
+			auEshopResult.price.discount_price ? auEshopResult.price.discount_price.formatted_value : auEshopResult.price.regular_price.formatted_value
 		}${
-			auEshopResult.price.regular_price.currency
+			auEshopResult.price.discount_price ? auEshopResult.price.discount_price.currency : auEshopResult.price.regular_price.currency
 		}</a>`
 	)
 }
